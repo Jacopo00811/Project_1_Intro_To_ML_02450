@@ -70,34 +70,34 @@ i -= 1
 # plot_PCA(y, C, Z, i, j)
 
 
-# Plt 3D PCA1 vs PCA2 vs PCA3 of the data
-# ind = [0, 1, 2]
-# colors = [
-#     "blue",   
-#     "green", 
-#     "red",    
-#     "orange", 
-#     "purple",
-#     "cyan",   
-#     "magenta",
-#     "yellow", 
-#     "brown",  
-#     "pink"   
-# ]
-# f = plt.figure()
-# ax = f.add_subplot(111, projection="3d")  # Here the mpl_toolkits is used
-# for c in range(C):
-#     class_mask = y == c
-#     s = ax.scatter(
-#         Z[class_mask, ind[0]], Z[class_mask, ind[1]], Z[class_mask, ind[2]], c=colors[c]
-#     )
-# plt.legend(Countries, loc='upper left', bbox_to_anchor=(1, 1))
-# ax.view_init(30, 220)
-# ax.set_xlabel("PCA1", fontweight="bold")
-# ax.set_ylabel("PCA2", fontweight="bold")
-# ax.set_zlabel("PCA3", fontweight="bold")
-# plt.title("Sport car data: PCA", fontweight="bold", fontsize=20, color="red")
-# plt.show()
+# Plot 3D PCA1 vs PCA2 vs PCA3 of the data
+ind = [0, 1, 2]
+colors = [
+    "blue",   
+    "green", 
+    "red",    
+    "orange", 
+    "purple",
+    "cyan",   
+    "magenta",
+    "yellow", 
+    "brown",  
+    "pink"   
+]
+f = plt.figure()
+ax = f.add_subplot(111, projection="3d")  # Here the mpl_toolkits is used
+for c in range(C):
+    class_mask = y == c
+    s = ax.scatter(
+        Z[class_mask, ind[0]], Z[class_mask, ind[1]], Z[class_mask, ind[2]], c=colors[c]
+    )
+plt.legend(Countries, loc='upper left', bbox_to_anchor=(1, 1))
+ax.view_init(30, 220)
+ax.set_xlabel("PCA1", fontweight="bold")
+ax.set_ylabel("PCA2", fontweight="bold")
+ax.set_zlabel("PCA3", fontweight="bold")
+plt.title("Sport car data: PCA", fontweight="bold", fontsize=20, color="red")
+plt.show()
 
 
 # Plot PCA
