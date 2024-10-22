@@ -72,25 +72,30 @@ num_bins = 20
 # plt.show()
 
 
-# Scatter plot grid
-plt.figure(figsize=(12, 10))
-for m1 in range(M):
-    for m2 in range(M):
-        plt.subplot(M, M, m1 * M + m2 + 1)
-        for c in range(C):
-            class_mask = y == c
-            plt.plot(np.array(X[class_mask, m2]), np.array(X[class_mask, m1]), ".")
-            if m1 == M - 1:
-                plt.xlabel(attributes[m2])
-            else:
-                plt.xticks([])
-            if m2 == 0:
-                plt.ylabel(attributes[m1])
-            else:
-                plt.yticks([])
-            # plt.ylim(0,X.max()*1.1)
-            # plt.xlim(0,X.max()*1.1)
-plt.legend(Countries, loc='upper left', bbox_to_anchor=(1, 1)) 
-plt.suptitle("Scatter plot grid of the data", fontsize=20, fontweight="bold", color="red")
-plt.show()
+# # Scatter plot grid
+# plt.figure(figsize=(12, 10))
+# for m1 in range(M):
+#     for m2 in range(M):
+#         plt.subplot(M, M, m1 * M + m2 + 1)
+#         for c in range(C):
+#             class_mask = y == c
+#             plt.plot(np.array(X[class_mask, m2]), np.array(X[class_mask, m1]), ".")
+#             if m1 == M - 1:
+#                 plt.xlabel(attributes[m2])
+#             else:
+#                 plt.xticks([])
+#             if m2 == 0:
+#                 plt.ylabel(attributes[m1])
+#             else:
+#                 plt.yticks([])
+#             # plt.ylim(0,X.max()*1.1)
+#             # plt.xlim(0,X.max()*1.1)
+# plt.legend(Countries, loc='upper left', bbox_to_anchor=(1, 1)) 
+# plt.suptitle("Scatter plot grid of the data", fontsize=20, fontweight="bold", color="red")
+# plt.show()
 
+# Calculate the number of car per each country
+country_count = np.zeros(C)
+for i in range(C):
+    country_count[i] = np.sum(y == i)
+print(f"Number of cars per country: {country_count}")
